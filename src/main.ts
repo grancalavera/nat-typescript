@@ -122,6 +122,7 @@ assert.throws(() => fromNumber(1.1), "fromNumber(x) should fail for non integer 
 assert.throws(() => fromNumber(-1), "fromNumber(x) should fail for negative values");
 
 assert(isEqualTo(zero, zero), "isEqualTo(zero, zero) should be true");
+
 assert(!isEqualTo(zero, one), "isEqualTo(zero, one) should be false");
 assert(!isEqualTo(one, zero), "isEqualTo(one, zero) should be false");
 
@@ -144,6 +145,12 @@ assert(isEqualTo(zero, times(one, zero)), "times(one, zero) should be zero");
 assert(isEqualTo(one, times(one, one)), "times(one, one) should be one");
 assert(isEqualTo(two, times(one, two)), "times(one, two) should be two");
 assert(isEqualTo(two, times(two, one)), "times(two, one) should be two");
+assert(isEqualTo(four, times(two, two)), "times(two, two) should be four");
+
+assert(
+  isEqualTo(plus(five, five), times(two, five)),
+  "times(two, five) should be plus(five, five)"
+);
 
 console.log(toString(zero));
 console.log(toString(one));
