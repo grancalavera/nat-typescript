@@ -1,26 +1,26 @@
 import assert from "assert";
 
-export type Nat = Zero | Succ;
+type Nat = Zero | Succ;
 
-export interface Zero {
+interface Zero {
   k: "Zero";
 }
 
-export interface Succ {
+interface Succ {
   k: "Succ";
   v: Nat;
 }
 
-export const succ = (v: Nat): Nat => ({ k: "Succ", v });
+const succ = (v: Nat): Nat => ({ k: "Succ", v });
 
-export const zero: Nat = { k: "Zero" };
-export const one = succ(zero);
-export const two = succ(one);
-export const three = succ(two);
-export const four = succ(three);
-export const five = succ(four);
+const zero: Nat = { k: "Zero" };
+const one = succ(zero);
+const two = succ(one);
+const three = succ(two);
+const four = succ(three);
+const five = succ(four);
 
-export const toInt = (x: Nat): number => {
+const toInt = (x: Nat): number => {
   switch (x.k) {
     case "Zero":
       return 0;
@@ -31,13 +31,13 @@ export const toInt = (x: Nat): number => {
   }
 };
 
-export const fromNumber = (x: number): Nat => {
+const fromNumber = (x: number): Nat => {
   assert.equal(x, Math.floor(x), `Error: "${x}" is not an integer`);
   assert(0 <= x, `Error: "${x}" is not positive`);
   return [...Array(x)].reduce(succ, zero);
 };
 
-export const plus = (x: Nat, y: Nat): Nat => {
+const plus = (x: Nat, y: Nat): Nat => {
   if (x.k === "Zero") {
     return y;
   } else if (y.k === "Zero") {
@@ -47,7 +47,7 @@ export const plus = (x: Nat, y: Nat): Nat => {
   }
 };
 
-export const times = (x: Nat, y: Nat): Nat => {
+const times = (x: Nat, y: Nat): Nat => {
   if (x.k === "Zero" || y.k === "Zero") {
     return zero;
   } else {
@@ -58,7 +58,7 @@ export const times = (x: Nat, y: Nat): Nat => {
   }
 };
 
-export const isLessThan = (x: Nat, y: Nat): boolean => {
+const isLessThan = (x: Nat, y: Nat): boolean => {
   if (x.k === "Zero" && y.k === "Zero") {
     return false;
   } else if (x.k === "Zero" && y.k === "Succ") {
@@ -70,7 +70,7 @@ export const isLessThan = (x: Nat, y: Nat): boolean => {
   }
 };
 
-export const isGreaterThan = (x: Nat, y: Nat): boolean => {
+const isGreaterThan = (x: Nat, y: Nat): boolean => {
   if (x.k === "Zero" && y.k === "Zero") {
     return false;
   } else if (x.k === "Zero" && y.k === "Succ") {
@@ -82,7 +82,7 @@ export const isGreaterThan = (x: Nat, y: Nat): boolean => {
   }
 };
 
-export const isEqualTo = (x: Nat, y: Nat): boolean => {
+const isEqualTo = (x: Nat, y: Nat): boolean => {
   if (x.k === "Zero" && y.k === "Zero") {
     return true;
   } else if (x.k === "Succ" && y.k === "Zero") {
@@ -94,7 +94,7 @@ export const isEqualTo = (x: Nat, y: Nat): boolean => {
   }
 };
 
-export const subtract = (x: Nat, y: Nat): Nat => {
+const subtract = (x: Nat, y: Nat): Nat => {
   if (x.k === "Zero" && y.k === "Zero") {
     return x;
   } else if (x.k === "Zero" && y.k === "Succ") {
@@ -106,7 +106,7 @@ export const subtract = (x: Nat, y: Nat): Nat => {
   }
 };
 
-export const toString = (x: Nat): String => {
+const toString = (x: Nat): String => {
   switch (x.k) {
     case "Zero":
       return "Zero";
