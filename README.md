@@ -35,3 +35,5 @@ Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Zero ) ) ) ) ) ) ) )
 Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Zero ) ) ) ) ) ) ) ) )
 Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Succ ( Zero ) ) ) ) ) ) ) ) ) )
 ```
+
+Compare with the [haskell](https://github.com/grancalavera/nat-haskell) version
