@@ -29,6 +29,10 @@ const compare = (x: Nat, y: Nat): Ordering => {
   }
 };
 
+const isLT = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.LT;
+const isEQ = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.EQ;
+const isGT = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.GT;
+
 const succ = (v: Nat): Nat => ({ k: "Succ", v });
 const zero: Nat = { k: "Zero" };
 const one = succ(zero);
@@ -74,10 +78,6 @@ const times = (x: Nat, y: Nat): Nat => {
     };
   }
 };
-
-const isLT = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.LT;
-const isEQ = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.EQ;
-const isGT = (x: Nat, y: Nat): boolean => compare(x, y) === Ordering.GT;
 
 const subtract = (x: Nat, y: Nat): Nat => {
   if (x.k === "Zero" && y.k === "Zero") {
